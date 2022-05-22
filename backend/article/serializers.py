@@ -9,7 +9,7 @@ class ArcticleSerializer(ModelSerializer):
       "pk",
       "title",
       "label",
-      "is_blocked"
+      "is_blocked",
     ]
 
 class ArticleTextSerializer(ModelSerializer):

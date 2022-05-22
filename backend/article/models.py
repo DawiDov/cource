@@ -29,7 +29,7 @@ class ArticleText(models.Model):
   
   class Meta:
         verbose_name = "Основной текст статьи"
-        verbose_name_plural = "Теста для статей курса"
+        verbose_name_plural = "Текст для статей курса"
 
 
 class Extra(models.Model):
