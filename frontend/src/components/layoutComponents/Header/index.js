@@ -2,8 +2,9 @@ import React from 'react'
 import Typography from '@mui/material/Typography'
 import Toolbar from '@mui/material/Toolbar'
 import AppBar from '@mui/material/AppBar'
-
+import Brightness4Icon from '@mui/icons-material/Brightness4'
 import BiMoonStars from 'components/layoutComponents/Logo'
+import { Switch } from '@mui/material'
 
 
 const Header = () => (
@@ -23,8 +24,17 @@ const Header = () => (
         color="inherit"
         noWrap
         sx={{ flexGrow: 1 }}>
-        Мастерская Магии
+        <Typography sx={{ fontStyle: 'oblique' }}>
+          <div>
+            Мастерская
+          </div>
+          <div>
+            Желаний
+          </div>
+        </Typography> 
       </Typography>
+      <Brightness4Icon />
+      <Switch />
     </Toolbar>
   </AppBar>
 )
