@@ -23,9 +23,9 @@ class ArticleText(models.Model):
   article_id = models.ForeignKey('Article', on_delete=models.CASCADE)
   title = models.CharField(max_length=256, verbose_name='Название статьи')
   text = HTMLField(verbose_name='Текст статьи')
-  image_1 = models.ImageField(upload_to='uploads/articles', blank=True, verbose_name='Картинка для статьи')
-  image_2 = models.ImageField(upload_to='uploads/articles', blank=True, verbose_name='Картинка для статьи')
-  image_3 = models.ImageField(upload_to='uploads/articles', blank=True, verbose_name='Картинка для статьи')
+  image_1 = models.ImageField(upload_to='uploads/articles', blank=True, verbose_name='Картинка для статьи 1')
+  image_2 = models.ImageField(upload_to='uploads/articles', blank=True, verbose_name='Картинка для статьи 2')
+  image_3 = models.ImageField(upload_to='uploads/articles', blank=True, verbose_name='Картинка для статьи 3')
 
   def __str__(self):
         return f"Основной контент: {str(self.article_id)}"
