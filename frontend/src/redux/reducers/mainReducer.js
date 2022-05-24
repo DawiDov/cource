@@ -5,6 +5,10 @@ import {
 const initialState = {
   articles: [],
   isBlocked: true,
+  articlesPerPage: 5,
+  numberOfPages: 4,
+  currentPageNumber: 1,
+  totalArticlesNumber: 20,
 }
 
 const defaultAction = {}
