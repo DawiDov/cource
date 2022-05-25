@@ -19,7 +19,7 @@ const Home = () => {
   })
 
   const articles = useSelector(state => state.main.articles)
-
+  debugger;
   return (
     <Box
       sx={{
@@ -31,9 +31,9 @@ const Home = () => {
       }}>
         {articles.map(article => 
           <Button
-            variant={article.isBlocked ? 'outlined' : 'contained'}
+            variant='contained'
             index={article.pk}
-            disabled={article.isBlocked}
+            disabled={!article.is_blocked}
             sx={{
               margin: '20px',
               padding: '20px',
