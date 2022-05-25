@@ -7,10 +7,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import CycloneIcon from '@mui/icons-material/Cyclone';
-import Copyright from 'components/layoutComponents/Copyright'
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentUser } from 'redux/actions/authentication/authAC';
+import { setCurrentUser } from 'redux/actions/authentication/authAC'
 
 const LogIn = () => {
 
@@ -45,7 +44,7 @@ const LogIn = () => {
         <Typography component="h1" variant="h5">
           Доступ в Мастерскую
         </Typography>
-        <Box component="form" noValidate sx={{ mt: 1 }}>
+        <Box component="form" noValidate sx={{ mt: 1 , textAlign: 'center'}}>
           <TextField
             margin="normal"
             required
@@ -69,16 +68,13 @@ const LogIn = () => {
           
           <Button
             type="submit"
-            fullWidth
             variant="contained"
             onClick={onClick}
-            sx={{ mt: 3, mb: 2 }}
-          >
+            sx={{ mt: 3, mb: 2, width: '200px'}}>
             колдовать
           </Button>
         </Box>
       </Box>
-      <Copyright sx={{ mt: 8, mb: 4 }} />
     </Container>
   );
 }
