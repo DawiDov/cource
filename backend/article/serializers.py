@@ -9,7 +9,7 @@ class ArcticleSerializer(ModelSerializer):
       "pk",
       "title",
       "label",
-      "is_blocked"
+      "is_blocked",
     ]
 
 class ArticleTextSerializer(ModelSerializer):
@@ -21,7 +21,9 @@ class ArticleTextSerializer(ModelSerializer):
       "article_id",
       "title",
       "text",
-      "image",
+      "image_1",
+      "image_2",
+      "image_3",
     ]
 
 class ExtraSerializer(ModelSerializer):
@@ -44,7 +46,7 @@ class BonusSerializer(ModelSerializer):
     fields = [
       "article_id",
       "title",
-      "text",
+      "text_bonus",
       "image",
       "pdf",
       "meditation",
