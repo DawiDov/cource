@@ -7,6 +7,9 @@ db.sqlite3
 media
 migrations
 
+# React
+node_modules
+
 # Backup files # 
 *.bak 
 
@@ -136,3 +139,5 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+
+.DS_Store
