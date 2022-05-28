@@ -9,23 +9,43 @@ import Container from '@mui/material/Container';
 import CycloneIcon from '@mui/icons-material/Cyclone';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentUser } from 'redux/actions/authentication/authAC'
+import { setCurrentUser, setUsername, setPassword } from 'redux/actions/authentication/authAC'
+import { getToken } from 'redux/api/auth';
+
 
 const LogIn = () => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const {isAuthenticated} = useSelector(
-    state => state.auth.isAuthenticated
+  const {
+    isAuthenticated,
+    username,
+    password,
+  } = useSelector(
+    state => ({
+      isAuthenticated: state.auth.isAuthenticated,
+      username: state.auth.username,
+      password: state.auth.password,
+    })
   )
+
+  const handleChangeLogin = (e) => {
+    dispatch(setUsername(e.target.value))
+  }
+
+  const handleChangePass = (e) => {
+    dispatch(setPassword(e.target.value))
+  }
+
   
+  const handleAuthentification = () => {
+    dispatch(getToken(username,password))
+    navigate('/')
+  }
+
   if (isAuthenticated) {
     return <Navigate to='/' replace />
   }
-  const onClick = () => {
-    dispatch(setCurrentUser())
-    navigate('/')
- }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -46,6 +66,8 @@ const LogIn = () => {
         </Typography>
         <Box component="form" noValidate sx={{ mt: 1 , textAlign: 'center'}}>
           <TextField
+            onChange={handleChangeLogin}
+            value={username}
             margin="normal"
             required
             fullWidth
@@ -56,6 +78,8 @@ const LogIn = () => {
             autoFocus
           />
           <TextField
+            onChange={handleChangePass}
+            value={password}
             margin="normal"
             required
             fullWidth
@@ -67,9 +91,9 @@ const LogIn = () => {
           />
           
           <Button
+            onClick={handleAuthentification}
             type="submit"
             variant="contained"
-            onClick={onClick}
             sx={{ mt: 3, mb: 2, width: '200px'}}>
             колдовать
           </Button>
