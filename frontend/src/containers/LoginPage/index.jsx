@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 import CycloneIcon from '@mui/icons-material/Cyclone';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentUser, setUsername, setPassword } from 'redux/actions/authentication/authAC'
+import { setUsername, setPassword } from 'redux/actions/authentication/authAC'
 import { getToken } from 'redux/api/auth';
 
 

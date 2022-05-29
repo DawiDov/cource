@@ -9,8 +9,11 @@ import { getArticles } from 'redux/actions/main/mainAC'
 const Home = () => {
   const dispatch = useDispatch()
   useEffect(() => {
+    const headers = {
+      'Authorization': 'Token c817a34119282ecddd855da50e6ba73944ca7e2d '
+    }
     
-    axios.get("api/articles")
+    axios.get("api/articles", headers)
       .then(response => {
         dispatch(getArticles(response.data))
       })
@@ -19,7 +22,6 @@ const Home = () => {
   })
 
   const articles = useSelector(state => state.main.articles)
-  debugger;
   return (
     <Box
       sx={{

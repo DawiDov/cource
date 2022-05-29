@@ -10,5 +10,5 @@ export const getToken = (log, pass) => (dispatch) => {
   }
   const url = getUrl('api-token-auth/')
 
-    axios.post(url, data).then(response => console.log(response))
+  axios.post(url, data).then(response => console.log(response))
 }
