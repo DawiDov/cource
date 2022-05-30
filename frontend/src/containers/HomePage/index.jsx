@@ -1,25 +1,44 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { Box, Divider, Pagination, Typography, Paper, Button } from "@mui/material"
 import PropTypes from 'prop-types'
-import axios from 'axios'
-import { getArticles } from 'redux/actions/main/mainAC'
+import { setArticles } from 'redux/actions/main/mainAC'
 
 
 const Home = () => {
   const dispatch = useDispatch()
+  const {
+    articles,
+    count,
+  } = useSelector(state => ({
+    articles: state.main.articles,
+    count: state.main.count,
+  }))
+
+  const [ page, setPage ] = useState(1)
+  console.log(page)
+  const pageConunt = count / articles.length
+  
   useEffect(() => {
-    
-    axios.get("api/articles")
+
+    const token = localStorage.getItem('token');
+
+    const requestHeaders = {
+    'Authorization': `Token ${token}`,
+  }
+    axios.get(`http://127.0.0.1:8000/api/articles/?page=${page}`, {headers: requestHeaders})
       .then(response => {
-        dispatch(getArticles(response.data))
+        console.log(response)
+        dispatch(setArticles(response.data))
       })
-      .catch(error => alert(error))
+      .catch(error => console.log(error))
+  }, [page])
 
-  })
+    const handleChangePage = (event, value) => {
+      setPage(value)
+  }
 
-  const articles = useSelector(state => state.main.articles)
-  debugger;
   return (
     <Box
       sx={{
@@ -59,8 +78,11 @@ const Home = () => {
           dislpay: 'flex',
         }}>
         <Pagination 
+          shape="rounded"
+          onChange={handleChangePage}
+          page={page}
           color='primary'
-          count={4} 
+          count={pageConunt} 
           size='large'
           sx={{margin: '10px auto', alignSelf: 'center'}}
         />
