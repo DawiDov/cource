@@ -5,9 +5,8 @@ import {
   SET_PASSWORD,
 } from './authTypes'
 
-export const setCurrentUser = (user) => ({
+export const setCurrentUser = () => ({
   type: SET_CURRENT_USER,
-  payload: user
 })
 
 export const unsetCurrentUser = () => ({

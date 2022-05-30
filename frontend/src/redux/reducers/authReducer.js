@@ -9,7 +9,6 @@ const initialState = {
   username: '',
   password: '',
   isAuthenticated: false,
-  user: {},
 }
 
 const defaultAction = {}
@@ -19,7 +18,6 @@ const authReducer = (state = initialState, action = defaultAction) => {
   case SET_CURRENT_USER:
     return {
       ...state,
-      user: action.payload,
       isAuthenticated: true
     }
   case UNSET_CURRENT_USER:

@@ -1,7 +1,7 @@
-import { GET_ARTICLES } from './mainTypes'
+import { SET_ARTICLES } from './mainTypes'
 
-export const getArticles = (articles) => ({
-  type: GET_ARTICLES,
+export const setArticles = (articles) => ({
+  type: SET_ARTICLES,
   payload: articles,
 })
 
